@@ -1,0 +1,67 @@
+public inteface PositionList<E> extends Iterable<E>{
+	size, isempty
+	public Position<E> first() thorws ELE;
+	public Position<E> last() throws ELE;
+	public void addFirst(E ele);
+	public void addLast(E ele);
+	public void addBefore(E ele, Position<E> p)throws IPE;
+	public void addAfter(E ele, Position<E> p)throws IPE;
+	public Position<E> next(Position<E> p) throws IPE, BVE;
+	public Position<E> prev(Position<E> p) throws IPE, BVE;
+	public E remove(Position<E> p) throws IPE;
+	public E set(E ele, Position<E> p) thorws IPE;
+	public Iterable<Position<E> positions();
+	public Iterator<E> iterator();
+}
+
+public class LinkedList<E> implements PositionList<E>{
+	private int size;
+	private Node<E> head;
+	
+	public LinkedList(){
+	head=null;
+}	
+
+public class ElementIterator<E> implements Iterator<E>{
+	private PositionList<E> lista;
+	private Position<E> cursor;
+	
+	public ElementIterator(PositionList<E> l){
+		lista=l;
+		if(lista.size()>0)
+			cursor=lista.first();
+		else
+			cursor=null;
+	}
+	
+	public boolean hasNext(){
+		return cursor!=null;
+	}
+	
+	public Position<E> next() throws NSEE{
+		if(cursor==null)
+			tthrow new NSEE;
+		Position<E> temp=cursor;
+		try {
+			cursor= (cursor==list.last()) ? null : list.next(cursor);
+		} catch (EmptyListException | InvalidPositionException | BoundaryViolationException e) {
+			System.out.println(e.getMessage());
+		}
+		return temp;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
