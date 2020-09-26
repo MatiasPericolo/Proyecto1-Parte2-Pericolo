@@ -154,9 +154,4 @@ public class Graph {
 			}			
 	}
 	
-	public void usarLogger() {
-		logger.fine("Fine");
-		logger.info("info");
-		logger.warning("Warning");
-	}
 }

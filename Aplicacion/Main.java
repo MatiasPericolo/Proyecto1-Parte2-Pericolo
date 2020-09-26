@@ -19,7 +19,5 @@ public class Main {
 		grafo.removeNode(2);//Remove node remueve el arco 2/3
 		grafo.addNode(3);
 		
-		grafo.usarLogger();
-		
 	}
 }
