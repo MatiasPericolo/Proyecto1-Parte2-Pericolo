@@ -99,9 +99,9 @@ public class Graph {
 			}else {
 				
 				Position<Node> buscador=nodos.first();
-				boolean encontre=false;
+				boolean encontre=false,fin=false;
 				
-				while(buscador.element()!=null && !encontre) {
+				while(!fin && !encontre) {
 					if(buscador.element().getElemento()==node) {
 						encontre=true;
 						
@@ -113,9 +113,11 @@ public class Graph {
 						
 						nodos.remove(buscador);
 						logger.fine("Nodo "+node+" eliminado correctamente.");
-					}
-					if(buscador!=nodos.last() && !encontre)
-						buscador=nodos.next(buscador);
+					}else if(!encontre)
+						if(buscador.equals(nodos.last())) 
+							fin=true;
+						else
+							buscador=nodos.next(buscador);
 				}
 				if(!encontre)
 					logger.warning("El Nodo "+node+" que quiso eliminar, no existe.");
@@ -140,12 +142,12 @@ public class Graph {
 						arcos.remove(buscador);
 						logger.fine("Arco entre "+node1+" y "+node2+" eliminado correctamente.");
 						
-					}else if(!encontre) {
+					}else if(!encontre) 
 						if(buscador.equals(arcos.last())) 
 							fin=true;
 						else
 							buscador=arcos.next(buscador);
-					}
+					
 				}
 				
 				if(!encontre) {

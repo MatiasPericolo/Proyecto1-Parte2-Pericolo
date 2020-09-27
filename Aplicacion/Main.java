@@ -15,6 +15,7 @@ public class Main {
 		grafo.addNode(2);
 		grafo.addNode(3);
 		grafo.addEdge(2, 3);
+		grafo.removeNode(4);
 		grafo.removeEdge(2,4);
 		grafo.removeNode(2);//Remove node remueve el arco 2/3
 		grafo.addNode(3);
